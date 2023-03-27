@@ -3,4 +3,4 @@
 
 For Git: Recommending to use feature branch workflow (https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
 
-in summary: everyone works on pieces on different branches, and then updates into main branch
+Essentially, everyone works on pieces on different branches and then updates into main branch
