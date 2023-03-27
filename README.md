@@ -1,1 +1,1 @@
-# CPSC-471-Term-Project
+# CPSC-471-Term-Project - ClotheSwap
