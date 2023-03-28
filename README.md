@@ -8,7 +8,9 @@ Essentially, everyone works on pieces on different branches and then updates int
 Softwares and Tools used:
 
 -PHP
+
 -HTML & CSS
+
 -XAMPP -->provides access to MySQL
 
 
