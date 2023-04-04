@@ -1,0 +1,19 @@
+#signup_form {
+    width:35%;
+    background-color: #17c8b9;
+    border: 1px solid rgb(10, 9, 9);
+    margin: 50px auto 0;
+    padding: 2em;
+    text-align: center;
+    text-decoration-style: double;
+    
+}
+
+#login_form {
+    width:35%;
+    background-color: #d5952e;
+    border: 1px solid rgb(10, 9, 9);
+    margin: 50px auto 0;
+    padding: 2em;
+    text-align: center;
+}
