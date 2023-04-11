@@ -130,7 +130,25 @@ if($item['Visibility']  == 1){
   ?>
   <p>Date Listed: <?php echo $item['Date']?></p>
   <p>Listed By: <?php echo $item['SellerUser']?></p>
-  <button>Message the Seller</button>
+  <?php 
+  if(isset($_SESSION["sessUsername"])) {
+    if ($item['SellerUser'] != $_SESSION["sessUsername"])
+    {?>
+    <form action="../includeFiles/messaging.inc.php" method="post">
+      <input type="hidden" name="clientID" value="<?php echo $item['SellerUser']?>">
+      <button type="submit" name="submit">Message the Seller</button>
+    </form>
+    <?php 
+    } 
+  }
+  else{
+    ?>
+    <form action="../includeFiles/messaging.inc.php" method="post">
+      <input type="hidden" name="clientID" value="<?php echo $item['SellerUser']?>">
+      <button type="submit" name="submit">Message the Seller</button>
+    </form>
+    <?php 
+  } ?>
 </div>
 <div class="image-container">
   <?php
