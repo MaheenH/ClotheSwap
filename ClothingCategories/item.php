@@ -93,7 +93,7 @@ if($item['Visibility']  == 1){
 <?php
   }
   else if ($item['Clothing Category'] == "Shoes"){
-    $sql = "SELECT * FROM shoes WHERE ClothingID = $cid";
+    $sql = "SELECT * FROM shoes WHERE 'Clothing ID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -109,7 +109,7 @@ if($item['Visibility']  == 1){
 <?php
   }
   else if ($item['Clothing Category'] == "Tops"){
-    $sql = "SELECT * FROM tops WHERE ClothingID = $cid";
+    $sql = "SELECT * FROM tops WHERE 'Clothing ID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
