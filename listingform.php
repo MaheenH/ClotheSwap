@@ -1,3 +1,7 @@
+<?php
+include_once 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +57,6 @@
         input[type="submit"]:hover {
             background-color: #00796b;
         }
-
     </style>
 </head>
 
@@ -77,10 +80,10 @@
                 <input type="text" name="inseam" id="inseam" style="max-width: 50px">
 
                 <label for="waist">Waist:</label>
-                <input type="text" name="waist" id="waist"style="max-width: 50px">
+                <input type="text" name="waist" id="waist" style="max-width: 50px">
 
                 <label for="hip">Hip:</label>
-                <input type="text" name="hip" id="hip"style="max-width: 50px">
+                <input type="text" name="hip" id="hip" style="max-width: 50px">
             </div>
 
             <label for="price">Price:</label>
@@ -127,7 +130,7 @@
             <label for="photo">Upload Photo:</label>
             <input type="file" name="photo" id="photo" style="padding: 20px;" multiple> <br><br>
 
-			<input type="submit" value="Submit">
+            <input type="submit" value="Submit">
 
         </form>
     </main>
@@ -146,8 +149,7 @@
                 <label for="hip">Hip:</label>
                 <input type="text" name="hip" id="hip" style="max-width: 50px">
                 `;
-            }
-            else if (val == "tops") {
+            } else if (val == "tops") {
                 options.innerHTML += `
                 <label for="chest">Chest:</label>
                 <input type="text" name="chest" id="chest" style="max-width: 50px">
@@ -158,14 +160,12 @@
                 <label for="hip">Hip:</label>
                 <input type="text" name="hip" id="hip" style="max-width: 50px">
                 `;
-            }
-            else if (val == "shoes") {
+            } else if (val == "shoes") {
                 options.innerHTML += `
                 <label for="shoe_size">Shoe Size:</label>
                 <input type="text" name="shoe_size" id="shoe_size" style="max-width: 50px">
                 `;
-            }
-            else if (val == "accessories") {
+            } else if (val == "accessories") {
                 options.innerHTML += `
                 <label for="accessory_type">Type:</label>
                 <select name="accessory_type" id="accessory_type">
@@ -182,3 +182,7 @@
 </body>
 
 </html>
+
+<?php
+include_once 'footer.php';
+?>
