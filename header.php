@@ -28,16 +28,16 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="/ClothingCategories/Tops.php">Tops</a>
+                            <a class="nav-link" href="../ClothingCategories/Tops.php">Tops</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ClothingCategories/Bottoms.php">Bottoms</a>
+                            <a class="nav-link" href="../ClothingCategories/Bottoms.php">Bottoms</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ClothingCategories/Shoes.php">Shoes</a>
+                            <a class="nav-link" href="../ClothingCategories/Shoes.php">Shoes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ClothingCategories/Accessories.php">Accessories</a>
+                            <a class="nav-link" href="../ClothingCategories/Accessories.php">Accessories</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,8 +58,8 @@ session_start();
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" role="search" action="../ClothingCategories/search.php">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
