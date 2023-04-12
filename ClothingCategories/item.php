@@ -16,7 +16,7 @@ $item = mysqli_fetch_array($result);
 mysqli_stmt_close($statement);
 
 
-$sql = "SELECT * FROM clothing WHERE ListingID = ".$_GET['product']."";
+$sql = "SELECT * FROM clothing WHERE `Listing ID` = ".$_GET['product']."";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -28,7 +28,7 @@ $clothing = mysqli_fetch_array($result);
 mysqli_stmt_close($statement);
 
 $cid = $clothing['ClothingID'];
-$sql = "SELECT * FROM style WHERE ClothingID = $cid";
+$sql = "SELECT * FROM style WHERE `Clothing ID` = $cid";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
