@@ -76,7 +76,7 @@ mysqli_stmt_close($statement);
     ?>
 <p> Accessory of type: <?php echo $measurements['Type']?> </p>
 <?php
-  }else if ($item['ClothingCategory'] == "Bottoms"){
+  }else if ($item['ClothingCategory'] == "bottoms"){
     $sql = "SELECT * FROM bottoms WHERE ClothingID = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
@@ -94,7 +94,7 @@ mysqli_stmt_close($statement);
 
 <?php
   }
-  else if ($item['ClothingCategory'] == "Shoes"){
+  else if ($item['ClothingCategory'] == "shoes"){
     $sql = "SELECT * FROM shoes WHERE ClothingID = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
@@ -110,7 +110,7 @@ mysqli_stmt_close($statement);
 
 <?php
   }
-  else if ($item['ClothingCategory'] == "Tops"){
+  else if ($item['ClothingCategory'] == "tops"){
     $sql = "SELECT * FROM tops WHERE ClothingID = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
