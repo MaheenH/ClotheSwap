@@ -2,7 +2,7 @@
 
 if (isset($_POST["submit"])) {
     require_once 'db.inc.php';
-    session_start();
+
     // if user logged in
     if (isset($_SESSION["sessUsername"])) {
         $user1 = $_SESSION["sessUsername"];
@@ -15,9 +15,9 @@ if (isset($_POST["submit"])) {
         }
         mysqli_stmt_execute($statement);
         $result = mysqli_stmt_get_result($statement);
-        $chat = mysqli_fetch_array($result);
+        $chat = mysqli_fetch_array($result); 
         mysqli_stmt_close($statement);
-        if ($chat == null) {
+        if($chat == null){
             // create new chat
             $sqlVar = "INSERT INTO chats(ChatID, Username1, Username2) VALUES (?,?,?);";
             $statement = mysqli_stmt_init($conn);
@@ -33,11 +33,14 @@ if (isset($_POST["submit"])) {
             mysqli_stmt_close($statement);
 
             header("location: ../messaging/chat.php?chat=$chatID");
-        } else {
+        }
+        else{
             header("location: ../messaging/chat.php?chat=$chat[ChatID]");
         }
-    } else {
+        }
+    else{
         header("location: ../UserRegistration/login.php");
         exit();
     }
+
 }
