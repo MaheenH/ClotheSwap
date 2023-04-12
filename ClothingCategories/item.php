@@ -106,7 +106,7 @@ mysqli_stmt_close($statement);
     $measurements = mysqli_fetch_array($result);
     mysqli_stmt_close($statement);
     ?>
-<p> Shoe size: <?php echo $measurements['Shoe Size']?> </p>
+<p> Shoe size: <?php echo $measurements['ShoeSize']?> </p>
 
 <?php
   }
