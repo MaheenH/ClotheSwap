@@ -20,10 +20,10 @@ mysqli_stmt_close($statement);
 <?php
 if ($rows !== false && count($rows) > 0) {
     foreach ($rows as $l) {
-        $id = $l['ListingID'];
+        $id = $l['Listing ID'];
         $price = $l['Price'];
         $title = $l['Title'];
-        $gallery = $l['GalleryID'];
+        $gallery = $l['Gallery ID'];
         $sql = "SELECT PhotoURL FROM photo WHERE GalleryID = $gallery";
         $statement = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($statement, $sql)) {
