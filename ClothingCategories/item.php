@@ -4,7 +4,7 @@ include_once '../header.php';
 
 <?php
 require_once '../includeFiles/db.inc.php';
-$sql = "SELECT * FROM listing WHERE 'Listing ID' = ".$_GET['product']."";
+$sql = "SELECT * FROM listing WHERE ListingID = ".$_GET['product']."";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -16,7 +16,7 @@ $item = mysqli_fetch_array($result);
 mysqli_stmt_close($statement);
 
 
-$sql = "SELECT * FROM clothing WHERE `Listing ID` = ".$_GET['product']."";
+$sql = "SELECT * FROM clothing WHERE ListingID = ".$_GET['product']."";
 
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
@@ -28,8 +28,8 @@ $result = mysqli_stmt_get_result($statement);
 $clothing = mysqli_fetch_array($result);
 mysqli_stmt_close($statement);
 
-$cid = $clothing['Clothing ID'];
-$sql = "SELECT * FROM style WHERE 'Clothing ID' = $cid";
+$cid = $clothing['ClothingID'];
+$sql = "SELECT * FROM style WHERE ClothingID = $cid";
 
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
@@ -57,13 +57,13 @@ if($item['Visibility']  == 1){
   ?>
   </p>
   <p>Color: <?php echo $clothing['Colour']?></p>
-  <p>Condition: <?php echo $clothing['Clothing Condition']?></p>
+  <p>Condition: <?php echo $clothing['ClothingCondition']?></p>
   <p>Brand: <?php echo $clothing['Brand']?></p>
   <p>Gender: <?php echo $clothing['Gender']?></p>
   <p>Measurements:   </p>
   <?php
-  if ($item['Clothing Category'] == "Accessory") {
-    $sql = "SELECT * FROM accessories WHERE 'Clothing ID' = $cid";
+  if ($item['ClothingCategory'] == "Accessory") {
+    $sql = "SELECT * FROM accessories WHERE 'ClothingID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -76,8 +76,8 @@ if($item['Visibility']  == 1){
     ?>
 <p> Accessory of type: <?php echo $measurements['Type']?> </p>
 <?php
-  }else if ($item['Clothing Category'] == "Bottoms"){
-    $sql = "SELECT * FROM bottoms WHERE 'Clothing ID' = $cid";
+  }else if ($item['ClothingCategory'] == "Bottoms"){
+    $sql = "SELECT * FROM bottoms WHERE 'ClothingID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -94,8 +94,8 @@ if($item['Visibility']  == 1){
 
 <?php
   }
-  else if ($item['Clothing Category'] == "Shoes"){
-    $sql = "SELECT * FROM shoes WHERE 'Clothing ID' = $cid";
+  else if ($item['ClothingCategory'] == "Shoes"){
+    $sql = "SELECT * FROM shoes WHERE 'ClothingID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -110,8 +110,8 @@ if($item['Visibility']  == 1){
 
 <?php
   }
-  else if ($item['Clothing Category'] == "Tops"){
-    $sql = "SELECT * FROM tops WHERE 'Clothing ID' = $cid";
+  else if ($item['ClothingCategory'] == "Tops"){
+    $sql = "SELECT * FROM tops WHERE 'ClothingID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -153,7 +153,7 @@ if($item['Visibility']  == 1){
 </div>
 <div class="image-container">
   <?php
-  $gallery = $item['Gallery ID'];
+  $gallery = $item['GalleryID'];
   $sql = "SELECT PhotoURL FROM photo WHERE GalleryID = $gallery";
   $statement = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($statement, $sql)) {
