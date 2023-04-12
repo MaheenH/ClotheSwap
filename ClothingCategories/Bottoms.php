@@ -55,14 +55,16 @@ include_once '../footer.php';
 
 <style>
   .item {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin-right: 20px;
     margin-left: 20px;
     vertical-align: top;
     color: black;
   }
   .price {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin-right: 20px;
     margin-left: 20px;
     vertical-align: top;

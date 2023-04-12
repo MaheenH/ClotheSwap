@@ -28,6 +28,7 @@
         $verificationID = uniqid();
         $date = date("Y-m-d");
         $visibility = "available";
+        $SellerUser = $_SESSION["sessUsername"];
 
         // Insert into verification table
         $sql = "INSERT INTO verification (`VerificationID`) VALUES ('$verificationID')";
@@ -42,7 +43,7 @@
         $galleryID = mysqli_insert_id($conn);
 
         // Insert into listing table
-        $sql = "INSERT INTO listing (`ClothingCategory`, `Date`, Visibility, Price, `VerificationID`, Title, `GalleryID`) VALUES ('$category', '$date', '$visibility', '$price', '$verificationID', '$title', '$galleryID')";
+        $sql = "INSERT INTO listing (`ClothingCategory`, `Date`, Visibility, Price, `VerificationID`, Title, `GalleryID`, SellerUser) VALUES ('$category', '$date', '$visibility', '$price', '$verificationID', '$title', '$galleryID', '$SellerUser')";
         mysqli_query($conn, $sql);
 
         $listingID = mysqli_insert_id($conn);

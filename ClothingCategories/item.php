@@ -41,7 +41,7 @@ $result = mysqli_stmt_get_result($statement);
 $tags = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_stmt_close($statement);
 
-if($item['Visibility']  == 1){
+//if($item['Visibility']  == 1){
 ?>
 <div class="text-container">
   <h1><?php echo $item['Title']?></h1>
@@ -60,10 +60,10 @@ if($item['Visibility']  == 1){
   <p>Condition: <?php echo $clothing['ClothingCondition']?></p>
   <p>Brand: <?php echo $clothing['Brand']?></p>
   <p>Gender: <?php echo $clothing['Gender']?></p>
-  <p>Measurements:   </p>
+  <p>Measurements: </p>
   <?php
-  if ($item['ClothingCategory'] == "Accessory") {
-    $sql = "SELECT * FROM accessories WHERE 'ClothingID' = $cid";
+  if ($item['ClothingCategory'] == "accessories") {
+    $sql = "SELECT * FROM accessories WHERE ClothingID = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -77,7 +77,7 @@ if($item['Visibility']  == 1){
 <p> Accessory of type: <?php echo $measurements['Type']?> </p>
 <?php
   }else if ($item['ClothingCategory'] == "Bottoms"){
-    $sql = "SELECT * FROM bottoms WHERE 'ClothingID' = $cid";
+    $sql = "SELECT * FROM bottoms WHERE ClothingID = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -95,7 +95,7 @@ if($item['Visibility']  == 1){
 <?php
   }
   else if ($item['ClothingCategory'] == "Shoes"){
-    $sql = "SELECT * FROM shoes WHERE 'ClothingID' = $cid";
+    $sql = "SELECT * FROM shoes WHERE ClothingID = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -111,7 +111,7 @@ if($item['Visibility']  == 1){
 <?php
   }
   else if ($item['ClothingCategory'] == "Tops"){
-    $sql = "SELECT * FROM tops WHERE 'ClothingID' = $cid";
+    $sql = "SELECT * FROM tops WHERE ClothingID = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -131,12 +131,13 @@ if($item['Visibility']  == 1){
   ?>
   <p>Date Listed: <?php echo $item['Date']?></p>
   <p>Listed By: <?php echo $item['SellerUser']?></p>
+  <p> <?php echo $_SESSION["sessUsername"]?> </p>
   <?php 
   if(isset($_SESSION["sessUsername"])) {
     if ($item['SellerUser'] != $_SESSION["sessUsername"])
     {?>
     <form action="../includeFiles/messaging.inc.php" method="post">
-      <input type="hidden" name="clientID" value="<?php echo $item['SellerUser']?>">
+      <input type="hidden" name="sellerName" value="<?php echo $item['SellerUser']?>">
       <button type="submit" name="submit">Message the Seller</button>
     </form>
     <?php 
@@ -145,7 +146,7 @@ if($item['Visibility']  == 1){
   else{
     ?>
     <form action="../includeFiles/messaging.inc.php" method="post">
-      <input type="hidden" name="clientID" value="<?php echo $item['SellerUser']?>">
+      <input type="hidden" name="sellerName" value="<?php echo $item['SellerUser']?>">
       <button type="submit" name="submit">Message the Seller</button>
     </form>
     <?php 
@@ -174,11 +175,11 @@ if($item['Visibility']  == 1){
   ?>
 </div>
 <?php
-} else{
+//} else{
 ?>
-  <h1>This item is not currently approved, check back later!</h1>
+  <!--<h1>This item is not currently approved, check back later!</h1>-->
 <?php
-}
+//}
 ?>
 <?php
 include_once '../footer.php';

@@ -21,6 +21,9 @@ if ($rows !== false && count($rows) > 0) {
     $price = $l['Price'];
     $title = $l['Title'];
     $gallery = $l['GalleryID'];
+    ?>
+    <p> <?php echo $gallery ?></p>
+    <?php
     $sql = "SELECT Image FROM photos WHERE GalleryID = $gallery";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
@@ -35,8 +38,8 @@ if ($rows !== false && count($rows) > 0) {
     <div class="item">
       <h1 class="item"> <a href="item.php?product=<?php echo $id ?>" style="text-decoration:none; color:inherit;"><?php echo $title ?></a> </h1>
 
-      <a href="item.php?product=<?php echo $id ?>"><img src=<?php echo $image ?> class="img_dis" width="200" height="200"> </a>
-
+      <a href="item.php?product=<?php echo $id ?>"><img src="<?php echo $image ?>" class="img_dis" width="200" height="200"> </a>
+      <p> <?php echo $image ?></p>
       <h2 class="price">$ <?php echo $price; ?></h2>
     </div>
   <?php
@@ -54,7 +57,8 @@ include_once '../footer.php';
 
 <style>
   .item {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin-right: 20px;
     margin-left: 20px;
     vertical-align: top;
@@ -62,7 +66,8 @@ include_once '../footer.php';
   }
 
   .price {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin-right: 20px;
     margin-left: 20px;
     vertical-align: top;
