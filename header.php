@@ -48,7 +48,7 @@ session_start();
                                 <!-- Adding buttons to visit profile page and logout, for users who have signed in and are logged in -->
                                 <?php
                                 if (isset($_SESSION["sessPwd"])) {
-                                    echo "<li><a class='dropdown-item' href='../UserRegistration/profile.php'>Profile Page</a></li>";
+                                    echo "<li><a class='dropdown-item' href='../listingform.php'>Make a Listing</a></li>";
                                     echo "<li><a class='dropdown-item' href='../includeFiles/logout.inc.php'>Log Out</a></li>";
                                 } else {
                                     echo "<li><a class='dropdown-item' href='../UserRegistration/signup.php'>Sign Up</a></li>";
