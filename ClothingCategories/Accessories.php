@@ -21,7 +21,7 @@ if ($rows !== false && count($rows) > 0) {
     $price = $l['Price'];
     $title = $l['Title'];
     $gallery = $l['GalleryID'];
-    ?>
+?>
     <p> <?php echo $gallery ?></p>
     <?php
     $sql = "SELECT Image FROM photos WHERE GalleryID = $gallery";
@@ -34,7 +34,7 @@ if ($rows !== false && count($rows) > 0) {
     $result = mysqli_stmt_get_result($statement);
     $image = mysqli_fetch_assoc($result)['Image'];
     mysqli_stmt_close($statement);
-?>
+    ?>
     <div class="item">
       <h1 class="item"> <a href="item.php?product=<?php echo $id ?>" style="text-decoration:none; color:inherit;"><?php echo $title ?></a> </h1>
 
