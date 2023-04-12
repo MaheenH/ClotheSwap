@@ -4,9 +4,11 @@ include_once '../header.php';
 
 <?php
 require_once '../includeFiles/db.inc.php';
+
 $result = $conn->query("SELECT image FROM photos ORDER BY GalleryID DESC");
 
 require_once '../includeFiles/db.inc.php';
+
 $sql = "SELECT ListingID, Price, Title, GalleryID FROM listing WHERE ClothingCategory = 'tops'";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
@@ -24,6 +26,7 @@ if ($rows !== false && count($rows) > 0) {
     $price = $l['Price'];
     $title = $l['Title'];
     $gallery = $l['GalleryID'];
+
 ?>
 <div class="gallery">
     <?php if($result->num_rows > 0){ ?>
@@ -59,6 +62,7 @@ if ($rows !== false && count($rows) > 0) {
   <h2 class="price">$ <?php echo $price; ?></h2>
 </div>
 <?php
+
   }
 } else { ?>
   <section class="None Found">
