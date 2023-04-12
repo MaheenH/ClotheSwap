@@ -5,7 +5,7 @@ include_once '../header.php';
 <?php
 require_once '../includeFiles/db.inc.php';
 $chatID = $_GET['chat'];
-$sql = "SELECT * FROM messages WHERE ChatID = $chatID ORDER BY DateSent DESC";
+$sql = "SELECT * FROM messages WHERE ChatID = $chatID";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../messaging/chat.php?error=statementfailed");

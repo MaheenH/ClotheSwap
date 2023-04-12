@@ -49,6 +49,7 @@ session_start();
                                 <?php
                                 if (isset($_SESSION["sessPwd"])) {
                                     echo "<li><a class='dropdown-item' href='../listingform.php'>Make a Listing</a></li>";
+                                    echo "<li><a class='dropdown-item' href='../messaging/viewChats.php'>View Messages</a></li>";
                                     echo "<li><a class='dropdown-item' href='../includeFiles/logout.inc.php'>Log Out</a></li>";
                                 } else {
                                     echo "<li><a class='dropdown-item' href='../UserRegistration/signup.php'>Sign Up</a></li>";
