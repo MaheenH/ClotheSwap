@@ -4,7 +4,7 @@ include_once '../header.php';
 
 <?php
 require_once '../includeFiles/db.inc.php';
-$sql = "SELECT * FROM listing WHERE ListingID = ".$_GET['product']."";
+$sql = "SELECT * FROM listing WHERE 'Listing ID' = ".$_GET['product']."";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -17,6 +17,7 @@ mysqli_stmt_close($statement);
 
 
 $sql = "SELECT * FROM clothing WHERE `Listing ID` = ".$_GET['product']."";
+
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -27,8 +28,9 @@ $result = mysqli_stmt_get_result($statement);
 $clothing = mysqli_fetch_array($result);
 mysqli_stmt_close($statement);
 
-$cid = $clothing['ClothingID'];
-$sql = "SELECT * FROM style WHERE `Clothing ID` = $cid";
+$cid = $clothing['Clothing ID'];
+$sql = "SELECT * FROM style WHERE 'Clothing ID' = $cid";
+
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -54,14 +56,14 @@ if($item['Visibility']  == 1){
   }
   ?>
   </p>
-  <p>Color: <?php echo $clothing['Color']?></p>
-  <p>Condition: <?php echo $clothing['CCondition']?></p>
+  <p>Color: <?php echo $clothing['Colour']?></p>
+  <p>Condition: <?php echo $clothing['Clothing Condition']?></p>
   <p>Brand: <?php echo $clothing['Brand']?></p>
   <p>Gender: <?php echo $clothing['Gender']?></p>
   <p>Measurements:   </p>
   <?php
-  if ($item['ClothingCategory'] == "Accessory") {
-    $sql = "SELECT * FROM accessories WHERE ClothingID = $cid";
+  if ($item['Clothing Category'] == "Accessory") {
+    $sql = "SELECT * FROM accessories WHERE 'Clothing ID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -72,10 +74,10 @@ if($item['Visibility']  == 1){
     $measurements = mysqli_fetch_array($result);
     mysqli_stmt_close($statement);
     ?>
-<p> Accessory of type: <?php echo $measurements['AType']?> </p>
+<p> Accessory of type: <?php echo $measurements['Type']?> </p>
 <?php
-  }else if ($item['ClothingCategory'] == "Bottoms"){
-    $sql = "SELECT * FROM bottoms WHERE ClothingID = $cid";
+  }else if ($item['Clothing Category'] == "Bottoms"){
+    $sql = "SELECT * FROM bottoms WHERE 'Clothing ID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -86,14 +88,14 @@ if($item['Visibility']  == 1){
     $measurements = mysqli_fetch_array($result);
     mysqli_stmt_close($statement);
     ?>
-<p> Waist Size: <?php echo $measurements['WSize']?> </p>
-<p> Hip Size: <?php echo $measurements['HSize']?> </p>
-<p> Inseam Size: <?php echo $measurements['ISize']?> </p>
+<p> Waist Size: <?php echo $measurements['Waist']?> </p>
+<p> Hip Size: <?php echo $measurements['Hip']?> </p>
+<p> Inseam Size: <?php echo $measurements['Inseam']?> </p>
 
 <?php
   }
-  else if ($item['ClothingCategory'] == "Shoes"){
-    $sql = "SELECT * FROM shoes WHERE ClothingID = $cid";
+  else if ($item['Clothing Category'] == "Shoes"){
+    $sql = "SELECT * FROM shoes WHERE 'Clothing ID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -104,12 +106,12 @@ if($item['Visibility']  == 1){
     $measurements = mysqli_fetch_array($result);
     mysqli_stmt_close($statement);
     ?>
-<p> Shoe size: <?php echo $measurements['ShoeSize']?> </p>
+<p> Shoe size: <?php echo $measurements['Shoe Size']?> </p>
 
 <?php
   }
-  else if ($item['ClothingCategory'] == "Tops"){
-    $sql = "SELECT * FROM tops WHERE ClothingID = $cid";
+  else if ($item['Clothing Category'] == "Tops"){
+    $sql = "SELECT * FROM tops WHERE 'Clothing ID' = $cid";
     $statement = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($statement, $sql)) {
         header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -120,10 +122,9 @@ if($item['Visibility']  == 1){
     $measurements = mysqli_fetch_array($result);
     mysqli_stmt_close($statement);
     ?>
-<p> Chest Size: <?php echo $measurements['CSize']?> </p>
-<p> Neck Size: <?php echo $measurements['NSize']?> </p>
-<p> Sleeve Size: <?php echo $measurements['SSize']?> </p>
-<p> Waist Size: <?php echo $measurements['WSize']?> </p>
+<p> Chest Size: <?php echo $measurements['Chest']?> </p>
+<p> Waist Size: <?php echo $measurements['Waist']?> </p>
+<p> Hip Size: <?php echo $measurements['Hip']?> </p>
 
 <?php
   }
@@ -152,7 +153,7 @@ if($item['Visibility']  == 1){
 </div>
 <div class="image-container">
   <?php
-  $gallery = $item['GalleryID'];
+  $gallery = $item['Gallery ID'];
   $sql = "SELECT PhotoURL FROM photo WHERE GalleryID = $gallery";
   $statement = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($statement, $sql)) {

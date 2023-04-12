@@ -4,7 +4,7 @@ include_once '../header.php';
 
 <?php
 require_once '../includeFiles/db.inc.php';
-$sql = "SELECT ListingID, Price, Title, GalleryID FROM listing WHERE ClothingCategory = 'Accessory' AND Visibility = 1";
+$sql = "SELECT 'Listing ID', Price, Title, 'Gallery ID' FROM listing WHERE 'Clothing Category' = 'Accessory' AND Visibility = 1";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
@@ -17,7 +17,7 @@ mysqli_stmt_close($statement);
 
 if ($rows !== false && count($rows) > 0) {
     foreach ($rows as $l) {
-        $id = $l['ListingID'];
+        $id = $l['Listing ID'];
         $price = $l['Price'];
         $title = $l['Title'];
         $gallery = $l['GalleryID'];
