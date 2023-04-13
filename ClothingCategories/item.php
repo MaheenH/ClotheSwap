@@ -104,8 +104,10 @@ mysqli_stmt_close($statement);
     $result = mysqli_stmt_get_result($statement);
     $measurements = mysqli_fetch_array($result);
     mysqli_stmt_close($statement);
-  ?>
-    <p> Shoe size: <?php echo $measurements['Shoe Size'] ?> </p>
+
+    ?>
+<p> Shoe size: <?php echo $measurements['ShoeSize']?> </p>
+
 
   <?php
   } else if ($item['ClothingCategory'] == "tops") {

@@ -71,7 +71,7 @@
                 break;
             case "shoes":
                 $shoe_size = $_POST['shoe_size'];
-                $sql = "INSERT INTO shoes (`ClothingID`, `Shoe Size`) VALUES ('$clothingID', '$shoe_size')";
+                $sql = "INSERT INTO shoes (`ClothingID`, `ShoeSize`) VALUES ('$clothingID', '$shoe_size')";
                 header("location: ../../ClothingCategories/Shoes.php");
                 break;
             case "accessories":

@@ -5,7 +5,7 @@ include_once '../header.php';
 <?php
 require_once '../includeFiles/db.inc.php';
 $chatID = $_GET['chat'];
-$sql = "SELECT * FROM messages WHERE ChatID = $chatID ORDER BY DateSent DESC";
+$sql = "SELECT * FROM messages WHERE ChatID = $chatID";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
     header("location: ../messaging/chat.php?error=statementfailed");
@@ -33,7 +33,7 @@ if(isset($_SESSION["sessUsername"])){
     if($_SESSION["sessUsername"] == $user1){
         if ($messages !== false && count($messages) > 0) {
             foreach ($messages as $m) {
-                if($m['sentBy'] == $user1){
+                if($m['sentBy'] != $user1){
                 ?>
                     <div class = message>
                         <div class="message user-1">
@@ -67,7 +67,8 @@ if(isset($_SESSION["sessUsername"])){
         <div class="chatbox">
         <form action="../includeFiles/sendChat.inc.php" method="post">
             <input type="text" class ="input" name="message" size="250" placeholder="Chat here"><br><br>
-            <button type="submit" class ="send" name="submit">Send</button>
+            <input type="hidden" name="chatID" value="<?php echo $chatID ?>">
+            <button type="submit" class ="send" name="submit" value="submit">Send</button>
         </form>
         </div>
 
@@ -111,7 +112,7 @@ if(isset($_SESSION["sessUsername"])){
         <form action="../includeFiles/sendChat.inc.php" method="post">
             <input type="text" class ="input" name="message" size="250" placeholder="Chat here"><br><br>
             <input type="hidden" name="chatID" value="<?php echo $chatID ?>">
-            <button type="submit" class ="send" name="submit">Send</button>
+            <button type="submit" class ="send" name="submit" value="submit">Send</button>
         </form>
         </div>
 
