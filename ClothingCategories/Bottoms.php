@@ -10,7 +10,7 @@ require_once '../includeFiles/db.inc.php';
 $sql = "SELECT ListingID, Price, Title, GalleryID FROM listing WHERE ClothingCategory = 'bottoms'";
 $statement = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($statement, $sql)) {
-  header("location: ../ClothingCategories/Accessories.php?error=statementfailed");
+  header("location: ../ClothingCategories/Bottoms.php?error=statementfailed");
   exit();
 }
 mysqli_stmt_execute($statement);
